@@ -12,7 +12,10 @@ for i = 1:numberOfElements
 end
 A = spdiags(L,0,numberOfElements, numberOfElements);
 M = I - d*B*A;
-b = numberOfElements*ones(1,numberOfElements);
+b = zeros(1,7);
+for i = 1:7
+    b(i) = (1-d)/numberOfElements;
+end
 
 diary("sparse_test.txt")
 whos A B I M b 
