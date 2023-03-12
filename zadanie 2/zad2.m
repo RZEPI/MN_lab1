@@ -12,7 +12,7 @@ for i = 1:numberOfElements
 end
 A = spdiags(L,0,numberOfElements, numberOfElements);
 M = I - d*B*A;
-b = zeros(1,7);
+b = zeros(7,1);
 for i = 1:7
     b(i) = (1-d)/numberOfElements;
 end
@@ -24,7 +24,7 @@ diary off
 spy(B)
 print -dpng spy_b
 
-r = M/b;
+r = M\b;
 
 bar(r)
 print -dpng bar_r
